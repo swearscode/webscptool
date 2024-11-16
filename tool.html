@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool - Product Data Extraction</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        nav {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Links -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+    </nav>
+    
+    <h1>Upload File to Extract Product Details</h1>
+    <form id="uploadForm">
+        <label for="jsonUpload">Upload JSON:</label>
+        <input type="file" id="jsonUpload" name="jsonUpload" accept=".json" required><br><br>
+    
+        <button type="submit">Submit</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        document.getElementById("uploadForm").onsubmit = async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData();
+            const jsonUpload = document.getElementById("jsonUpload").files[0];
+
+            if (jsonUpload) {
+                formData.append("json", jsonUpload);
+            }
+
+            try {
+                const response = await fetch("/upload", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+                const resultDiv = document.getElementById("result");
+
+                if (result.success) {
+                    resultDiv.innerHTML = `<p>File processed successfully! <a href="${result.downloadUrl}">Download Excel</a></p>`;
+                } else {
+                    resultDiv.innerHTML = `<p>Error: ${result.message}</p>`;
+                }
+            } catch (error) {
+                console.error("Error uploading file:", error);
+                document.getElementById("result").innerHTML = `<p>Error uploading file.</p>`;
+            }
+        };
+    </script>
+</body>
+</html>

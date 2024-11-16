@@ -1,0 +1,119 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d4c4a8; /* Earthy tone background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    flex-direction: column;
+}
+
+/* Heading Styling */
+h1 {
+    color: #3e2c41; /* Deep earthy tone */
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Form Container */
+form {
+    background-color: #94d656;
+    width: 90%;
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid #45dce4;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Label Styling */
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+    align-self: flex-start;
+}
+
+/* Input Styling */
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #145e68;
+    border-radius: 8px;
+    background-color: #b1e087;
+    font-size: 1rem;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Result Section */
+#result {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #333;
+    text-align: center;
+    max-width: 90%;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    button {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px;
+    }
+}
